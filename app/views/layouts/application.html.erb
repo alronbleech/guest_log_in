@@ -20,38 +20,67 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
               <ul class="row text-light navbar-nav ml-auto">
-                  <li class="p-2 nav-item">
-                    <a><i class="fas fa-home"></i> Home</a>
-                  </li>
                 <% if user_signed_in? %>
-                  <li class="p-2 nav-item">
-                    <a><i class="fas fa-users"></i> Users</a>
-                  </li>
-                  <li class="p-2 nav-item">
-                    <a><i class="fas fa-book-open"></i> Books</a>
-                  </li>
-                  <li class="p-2 nav-item">
-                    <a><i class="fas fa-sign-out-alt"></i> logout</a>
-                  </li>
+                <li>
+                <%= link_to user_path(:id), class: "btn shadow-none p-2 text-light" do %>
+                  <i class="fas fa-home"></i>
+                  Home
+                <% end %>
+                </li>
+                <li>
+                  <%= link_to users_path, class: "btn shadow-none p-2 text-light" do %>
+                    <i class="fas fa-users"></i>
+                    Users
+                  <% end %>
+                </li>
+                <li>
+                  <%= link_to books_path, class: "btn shadow-none p-2 text-light" do %>
+                    <i class="fas fa-book-open"></i>
+                    Books
+                  <% end %>
+                </li>
+                <li>
+                  <%= link_to destroy_user_session_path, method: :delete, class: "btn shadow-none p-2 text-light" do %>
+                    <i class="fas fa-sign-out-alt"></i>
+                    Logout
+                  <% end %>
+                </li>
                 <% else %>
-                  <li class="p-2 nav-item">
-                    <a><i class="fas fa-link"></i> About</a>
-                  </li>
-                  <li class="p-2 nav-item">
-                    <a><i class="fas fa-user-plus"></i> sign up</a>
-                  </li>
-                  <li class="p-2 nav-item">
-                    <a><i class="fas fa-sign-in-alt"></i> Log in</a>
-                  </li>
+                <li>
+                <%= link_to root_path, class: "btn shadow-none p-2 text-light" do %>
+                  <i class="fas fa-home"></i>
+                  Home
+                <% end %>
+                </li>
+                <li>
+                  <%= link_to about_path, class: "btn shadow-none p-2 text-light" do %>
+                    <i class="fas fa-link"></i>
+                    About
+                  <% end %>
+                </li>
+                <li>
+                  <%= link_to new_user_registration_path, class: "btn shadow-none p-2 text-light" do %>
+                    <i class="fas fa-user-plus"></i>
+                    sign up
+                  <% end %>
+                </li>
+                <li>
+                  <%= link_to user_session_path, class: "btn shadow-none p-2 text-light" do %>
+                    <i class="fas fa-sign-in-alt"></i>
+                    Login
+                  <% end %>
+                </li>
                 <% end %>
               </ul>
             </div>
         </div>
       </nav>
     </header>
+
     <main>
     <%= yield %>
     </main>
+
     <footer class="container">
       <p class="text-center">CopyRight Infratop.inc</p>
     </footer>
