@@ -1,18 +1,32 @@
-      <% @user.each do |user| %>
-        <div>
-          <h2>User info</h2>
-          <%= image_tag user.get_profile_image(100,100) %>
-          <table class="mb-5 border-top">
-            <tr class="border-bottom">
-              <th class="p-2">name</th>
-              <td><%= user.name %></td>
-            </tr>
-            <tr>
-              <th class="p-2">introduction</th>
-              <td><%= user.introduction %></td>
-            </tr>
-          </table>
-            <%= link_to edit_user_path(user), class: "btn btn-block border border-dark btn-outline-secondary" do %>
-              <i class="fas fa-user-cog"></i>
-            <% end %>
-          <% end %>
+<div>
+<h2>User info</h2>
+  <%= image_tag user.get_profile_image(100,100) %>
+  <table class="mb-5 border-top">
+    <tr class="border-bottom">
+      <th class="p-2">name</th>
+      <td><strong><%= user.name %></strong></td>
+    </tr>
+    <tr>
+      <th class="p-2">introduction</th>
+      <td><strong><%= user.introduction %></strong></td>
+    </tr>
+  </table>
+  <%= link_to edit_user_path(user.id), class: "btn btn-block border border-dark btn-outline-secondary" do %>
+    <i class="fas fa-user-cog"></i>
+  <% end %>
+</div>
+
+<div class="mt-3">
+  <%= form_with model: book do |f| %>
+  <div>
+    <h2>New book</h2>
+    <p>Title</p>
+    <%= f.text_field :title, class: "text-left btn border border-1 rounded" %>
+    <p>Opinion</p>
+    <%= f.text_area :body, class: "text-left btn border border-1 rounded" %>
+    <div>
+      <%= f.submit 'Create Book', class: "mt-3 btn btn-success text-light" %>
+    </div>
+  </div>
+  <% end %>
+</div>

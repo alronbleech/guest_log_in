@@ -1,4 +1,6 @@
-<main>
+<% flash.each do |message_type, message| %>
+  <% content_tag :div, message, class: message_type %>
+<% end %>
   <div class="container">
     <div class="mx-auto p-3" style="width: 570px;">
       <h1 class=>welcome to <i class="fas fa-book"></i><strong>Bookers</strong> !!</h1>
@@ -11,4 +13,3 @@
       </div>
     </div>
   </div>
-</main>
