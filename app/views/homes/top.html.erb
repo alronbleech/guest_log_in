@@ -8,6 +8,9 @@
       <p>you can share and exchange your opinions , inpressions , and emotions</p>
       <p>about various books!</p>
       <div class="mr-4 ml-4 text-center">
+        <div class="row">
+          <%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, class: "btn btn-secondary btn-sm btn-block mb-3 sign_in", method: :post %>
+        </div>
         <a button type="button" class="btn btn-info btn-block" href="/users/sign_in">Log in</a><br>
         <a button type="button" class="btn btn-success btn-block" href="/users/sign_up">Sign up</a>
       </div>
